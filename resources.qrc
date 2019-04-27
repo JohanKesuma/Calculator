@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/image">
+        <file>image/open-archive.png</file>
+        <file>image/save.png</file>
+        <file>image/excel.png</file>
+        <file>image/down-arrow.png</file>
+        <file>image/up-arrow.png</file>
+        <file>image/cancel.png</file>
+    </qresource>
+</RCC>
