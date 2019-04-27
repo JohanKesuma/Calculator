@@ -45,6 +45,14 @@ private Q_SLOTS:
 
     void on_pushButton_clicked();
 
+    void on_actionFind_and_Replace_triggered();
+
+    void on_actionSelect_All_triggered();
+
+    void on_actionSelect_Column_triggered();
+
+    void on_actionSelect_Row_triggered();
+
 private:
     Ui::MainWindow *ui;
     CalcTableModel *calcTableModel;

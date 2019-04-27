@@ -300,6 +300,16 @@ border-color: rgb(0, 0, 0);</string>
     <property name="title">
      <string>Edit</string>
     </property>
+    <widget class="QMenu" name="menuSelect">
+     <property name="title">
+      <string>Select</string>
+     </property>
+     <addaction name="actionSelect_Row"/>
+     <addaction name="actionSelect_Column"/>
+    </widget>
+    <addaction name="actionSelect_All"/>
+    <addaction name="menuSelect"/>
+    <addaction name="separator"/>
     <addaction name="actionFind"/>
     <addaction name="actionFind_and_Replace"/>
    </widget>
@@ -397,6 +407,9 @@ border-color: rgb(0, 0, 0);</string>
    <property name="text">
     <string>Find and Replace</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+H</string>
+   </property>
   </action>
   <action name="actionFullScreen">
    <property name="checkable">
@@ -404,6 +417,21 @@ border-color: rgb(0, 0, 0);</string>
    </property>
    <property name="text">
     <string>FullScreen</string>
+   </property>
+  </action>
+  <action name="actionSelect_All">
+   <property name="text">
+    <string>Select All</string>
+   </property>
+  </action>
+  <action name="actionSelect_Row">
+   <property name="text">
+    <string>Select Row</string>
+   </property>
+  </action>
+  <action name="actionSelect_Column">
+   <property name="text">
+    <string>Select Column</string>
    </property>
   </action>
  </widget>

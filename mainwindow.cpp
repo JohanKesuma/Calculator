@@ -6,6 +6,7 @@
 #include "minmaxnorm.h"
 #include "linreggradientdescent.h"
 #include "calcoptionsdialog.h"
+#include "dialogs/findreplacedialog.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -161,5 +162,44 @@ void MainWindow::on_pushButton_clicked()
 {
     if (ui->bottomFrame->isVisible()) {
         ui->bottomFrame->hide();
+    }
+}
+
+void MainWindow::on_actionFind_and_Replace_triggered()
+{
+    FindReplaceDialog dialog(ui->calcTableView, calcTableModel);
+    dialog.exec();
+}
+
+void MainWindow::on_actionSelect_All_triggered()
+{
+    ui->calcTableView->selectAll();
+}
+
+void MainWindow::on_actionSelect_Column_triggered()
+{
+    if (ui->calcTableView->selectionModel()->hasSelection()) {
+        ui->calcTableView->setSelectionMode(QAbstractItemView::MultiSelection);
+        int firstSelectedCol = ui->calcTableView->selectionModel()->selectedIndexes().first().column();
+        int lastSelectedCol = ui->calcTableView->selectionModel()->selectedIndexes().last().column();
+
+        for (int i = firstSelectedCol; i <= lastSelectedCol; ++i) {
+            ui->calcTableView->selectColumn(i);
+        }
+        ui->calcTableView->setSelectionMode(QAbstractItemView::ExtendedSelection);
+    }
+}
+
+void MainWindow::on_actionSelect_Row_triggered()
+{
+    if (ui->calcTableView->selectionModel()->hasSelection()) {
+        ui->calcTableView->setSelectionMode(QAbstractItemView::MultiSelection);
+        int firstSelectedRow = ui->calcTableView->selectionModel()->selectedIndexes().first().row();
+        int lastSelectedRow = ui->calcTableView->selectionModel()->selectedIndexes().last().row();
+
+        for (int i = firstSelectedRow; i <= lastSelectedRow; ++i) {
+            ui->calcTableView->selectRow(i);
+        }
+        ui->calcTableView->setSelectionMode(QAbstractItemView::ExtendedSelection);
     }
 }
